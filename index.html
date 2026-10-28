@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6e8dc">
+<title>A Little Something for Honeyyy ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#f6e8dc;--paper:#fff9f0;--paper2:#f7eee3;
+  --pink:#eab8bb;--pink-light:#f6dfe0;--rose:#c87883;
+  --wine:#792e40;--wine-dark:#4d1c2b;--ink:#57353b;
+  --muted:#956d70;--line:#e4c9bb;--shadow:0 15px 40px #68333b15;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:radial-gradient(ellipse at 5% 10%,#fff9f3 0,transparent 35%),var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.22;background-image:radial-gradient(#9e6b5b .55px,transparent .55px);background-size:9px 9px}
+button,input{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:focus-visible,input:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
+button:disabled{cursor:not-allowed;opacity:.5}
+img,svg{max-width:100%}
+.hidden{display:none!important}
+main,header,footer{position:relative;z-index:1}
+.script{font-family:"Great Vibes",cursive;font-weight:400}
+.serif{font-family:"Cormorant Garamond",Georgia,serif}
+.eyebrow{color:var(--wine);text-transform:uppercase;letter-spacing:3px;font-size:10px;line-height:1.8}
+.small{color:var(--muted);font-size:13px;line-height:1.8}
+h1,h2,h3,p{overflow-wrap:anywhere}
+h1.script{font-size:clamp(53px,10vw,86px);line-height:.98;margin:13px 0}
+h2.script{font-size:clamp(42px,8vw,64px);margin:10px 0}
+h3{font-family:"Cormorant Garamond",Georgia,serif}
+p{line-height:1.9}
+.paper{background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;padding:13px 21px;border:1px solid var(--wine);border-radius:4px;color:#fff8f0;background:var(--wine);font-size:12px;letter-spacing:.6px;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--wine-dark)}
+.btn-light{color:var(--wine);background:transparent;border-color:#c99b98}
+.btn-light:hover{background:var(--pink-light)}
+.center-screen{min-height:100svh;display:grid;place-items:center;padding:25px 16px}
+.gate{width:min(100%,475px);padding:16px;position:relative;background:#e9d1c2;border:1px solid #d2ad9e;box-shadow:0 22px 70px #6e39421a}
+.gate-inner{background:var(--paper);border:1px solid #dfbcb1;outline:1px dashed #d8a8a1;outline-offset:-9px;padding:31px 23px 27px;text-align:center;position:relative;overflow:hidden}
+.gate-inner::before,.gate-inner::after{content:"✿";position:absolute;color:#d7a3a0;font-size:24px}
+.gate-inner::before{left:15px;top:12px}
+.gate-inner::after{right:15px;bottom:12px}
+.corner-bow{font-size:27px}
+.invite-mark{font-size:37px;margin:12px 0;filter:drop-shadow(0 4px 4px #a75b5b18)}
+.invite-title{color:var(--wine);margin:10px 0}
+.gate-description{max-width:320px;margin:12px auto 22px;font-family:"Cormorant Garamond",Georgia,serif;font-size:20px;line-height:1.5}
+.code-slots{display:flex;justify-content:center;gap:10px;margin:20px 0 17px}
+.code-slot{width:48px;height:56px;display:grid;place-items:center;border:1px solid #d4aaa4;border-bottom:3px solid #b98083;background:#fffdf8;color:var(--wine);font-family:"Cormorant Garamond",serif;font-size:27px;transition:.2s}
+.code-slot.active{background:var(--pink-light);border-color:var(--wine);transform:translateY(-3px)}
+.code-input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.seal{width:75px;height:75px;display:grid;place-items:center;margin:23px auto 16px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 28%,#b95469,#792e40 70%);color:#f8d7d6;box-shadow:inset 0 0 0 3px #ffffff22,0 7px 16px #792e402f;font-size:31px;transition:transform .25s,box-shadow .25s}
+.seal:hover{transform:rotate(-12deg) scale(1.07);box-shadow:0 8px 25px #792e4045}
+.seal.unlocked{animation:sealOpen .75s ease forwards}
+@keyframes sealOpen{0%{transform:scale(1) rotate(0)}45%{transform:scale(1.22) rotate(12deg)}100%{transform:scale(.15) rotate(-35deg);opacity:0}}
+.gate-error{min-height:23px;font-size:12px;color:var(--wine)}
+.gate-foot{font-size:10px;letter-spacing:1px;color:#a77b7d;margin-top:20px}
+#app{animation:pageIn .8s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.topbar{max-width:1000px;margin:auto;padding:20px 20px 10px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{font-family:"Cormorant Garamond",serif;color:var(--wine);font-size:23px}
+.brand span{font-family:"Great Vibes",cursive;font-size:25px}
+.navlinks{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{color:var(--wine);text-decoration:none;font-size:11px;padding:9px 12px;border-bottom:1px solid transparent}
+.navlinks a:hover,.navlinks a[aria-current="page"]{border-color:var(--rose)}
+.hero{min-height:650px;padding:55px 18px 75px;display:grid;place-items:center}
+.hero-paper{width:min(100%,780px);position:relative;padding:55px 25px 42px;text-align:center;background:var(--paper);border:1px solid #e0c5b6;box-shadow:0 15px 50px #713c3814;clip-path:polygon(0 1%,4% 0,8% 1%,13% 0,18% 1%,23% 0,28% 1%,33% 0,38% 1%,43% 0,48% 1%,53% 0,58% 1%,63% 0,68% 1%,73% 0,78% 1%,83% 0,88% 1%,93% 0,100% 1%,99% 8%,100% 15%,99% 22%,100% 29%,99% 36%,100% 43%,99% 50%,100% 57%,99% 64%,100% 71%,99% 78%,100% 85%,99% 92%,100% 99%,94% 100%,88% 99%,82% 100%,76% 99%,70% 100%,64% 99%,58% 100%,52% 99%,46% 100%,40% 99%,34% 100%,28% 99%,22% 100%,16% 99%,10% 100%,4% 99%,0 100%,1% 92%,0 84%,1% 76%,0 68%,1% 60%,0 52%,1% 44%,0 36%,1% 28%,0 20%,1% 12%)}
+.hero-flowers{font-size:clamp(32px,6vw,48px);margin:17px 0}
+.hero-sub{max-width:510px;margin:20px auto 25px;font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.6}
+.stamp{display:inline-block;border:1px solid #c48b8a;padding:7px 12px;transform:rotate(-5deg);color:var(--wine);font-size:10px;letter-spacing:2px}
+.scribble{position:absolute;font-size:31px;color:var(--rose);opacity:.9}
+.scribble.one{left:6%;top:14%;transform:rotate(-18deg)}
+.scribble.two{right:6%;bottom:13%;transform:rotate(14deg)}
+.ribbon-divider{display:flex;justify-content:center;align-items:center;gap:12px;color:var(--rose);margin:24px auto}
+.ribbon-divider::before,.ribbon-divider::after{content:"";height:1px;width:60px;background:#d7aaa3}
+.section{padding:65px 19px;scroll-margin-top:25px}
+.wrap{width:min(100%,970px);margin:auto}
+.section-head{text-align:center;margin-bottom:30px}
+.section-head .small{max-width:520px;margin:12px auto}
+.section-label{font-size:10px;color:var(--wine);text-transform:uppercase;letter-spacing:3px}
+.scrapbook{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
+.scrap{position:relative;padding:18px 17px 22px;text-align:center;border:1px solid #e2cabb;background:var(--paper);box-shadow:3px 7px 15px #7b464018;min-height:220px;transition:transform .25s}
+.scrap:nth-child(3n+1){transform:rotate(-1.5deg)}
+.scrap:nth-child(3n+2){transform:rotate(1.7deg);background:#fff4ef}
+.scrap:nth-child(3n+3){transform:rotate(-.5deg)}
+.scrap:hover{transform:rotate(0) translateY(-5px)}
+.tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg);width:68px;height:20px;background:#e7b7b4b8;border-left:1px dashed #fff7e6;border-right:1px dashed #fff7e6}
+.scrap-emoji{font-size:36px;display:block;margin:11px 0 8px}
+.scrap h3{color:var(--wine);font-size:24px;margin:5px 0}
+.scrap p{font-size:12px;color:var(--muted)}
+.scrap button{border:0;border-bottom:1px solid #c48c90;padding:6px 3px;color:var(--wine);background:transparent;font-size:11px}
+.keepsake-reveal{margin-top:12px;padding:11px;background:#f5e4df;font-size:12px;line-height:1.8;animation:pageIn .35s ease both}
+.mail-row{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px}
+.mini-envelope{padding:23px 12px;min-height:145px;border:1px solid #d9b7a8;background:#fff8f0;color:var(--wine);box-shadow:0 6px 15px #713c3810;transition:transform .2s}
+.mini-envelope:hover{transform:translateY(-4px) rotate(-1deg)}
+.mini-envelope .env{display:block;font-size:38px;margin-bottom:10px}
+.mini-envelope span:last-child{display:block;font-size:11px;line-height:1.6}
+.note-output{margin:22px auto 0;max-width:650px;padding:24px;background:#fff8f0;border:1px dashed #c88d90;text-align:center}
+.note-output h3{color:var(--wine);font-size:30px;margin:0 0 8px}
+.note-output p{font-size:14px}
+.letter-stage{max-width:700px;margin:auto;background:#f0d9cf;padding:15px;border:1px solid #d5b0a3}
+.letter-paper{background:#fff9f0;padding:clamp(22px,5vw,45px);border:1px solid #e0c2b2;position:relative;text-align:left}
+.letter-paper::before{content:"♡";position:absolute;right:20px;top:12px;color:#d9a2a0;font-size:24px}
+.letter-paper p{font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1.8}
+.letter-paper h3{color:var(--wine);font-size:35px;margin:0 0 15px}
+.letter-sign{font-size:39px!important;color:var(--wine)}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0}
+.pick{padding:20px 12px;background:#fff9f0;border:1px solid #e2c3b6;color:var(--wine);min-height:150px;box-shadow:var(--shadow);transition:transform .2s,background .2s}
+.pick:hover{transform:translateY(-4px);background:#fff0ef}
+.pick span{display:block;font-size:38px;margin-bottom:10px}
+.pick strong{display:block;font-family:"Cormorant Garamond",serif;font-size:22px}
+.pick small{display:block;margin-top:6px;font-size:10px;color:var(--muted)}
+.gift-area{text-align:center}
+.gift-box{position:relative;border:0;background:transparent;font-size:clamp(90px,20vw,150px);filter:drop-shadow(0 12px 10px #7a344025);transition:transform .3s}
+.gift-box:hover{transform:rotate(-5deg) scale(1.06)}
+.gift-message{max-width:620px;margin:22px auto 0;padding:28px;background:#fff9f0;border:1px solid #d9b6a8;box-shadow:var(--shadow);animation:pageIn .5s ease both}
+.gift-message h3{color:var(--wine);font-size:35px}
+.final-sparkles{font-size:32px;letter-spacing:9px}
+.music-card{max-width:520px;margin:32px auto 0;display:flex;gap:15px;align-items:center;justify-content:space-between;padding:16px;background:#fff9f0;border:1px solid #e2c6b7}
+.music-info{text-align:left}
+.music-info strong{display:block;font-size:12px;color:var(--wine)}
+.music-info small{font-size:10px;color:var(--muted)}
+.footer{padding:45px 15px;text-align:center;color:var(--muted);font-size:12px}
+.footer .script{color:var(--wine);font-size:37px}
+#topBtn{position:fixed;right:15px;bottom:15px;z-index:8;width:42px;height:42px;border:1px solid #d4aaa4;background:var(--paper);color:var(--wine);border-radius:50%;box-shadow:var(--shadow)}
+#confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.confetti-piece{position:absolute;top:-30px;animation:fall 3.4s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}
+
+/* PAGE NAVIGATION: only one section is visible at a time */
+main > .hero,main > .section{display:none}
+main > .hero.active-page{display:grid}
+main > .section.active-page{display:block}
+
+/* Closed white envelope with a red heart seal */
+.envelope-wrap{max-width:420px;margin:30px auto;text-align:center}
+.letter-envelope{position:relative;width:min(100%,340px);height:215px;margin:20px auto;display:block;border:1px solid #e2cfc5;border-radius:4px;background:#fff;box-shadow:0 12px 30px #68333b20;overflow:hidden;transition:transform .25s}
+.letter-envelope:hover{transform:translateY(-4px)}
+.envelope-back{position:absolute;inset:0;background:#fff}
+.envelope-flap{position:absolute;top:0;left:0;width:100%;height:60%;background:#f7eee8;clip-path:polygon(0 0,100% 0,50% 100%);border-bottom:1px solid #ead7cf}
+.envelope-heart{position:absolute;left:50%;top:53%;transform:translate(-50%,-50%);width:54px;height:54px;display:grid;place-items:center;background:#a52f48;color:white;border:3px solid #e8b8bd;border-radius:50%;font-size:28px;box-shadow:0 4px 12px #792e4030}
+.envelope-caption{color:var(--wine);font-family:"Cormorant Garamond",serif;font-size:23px}
+.letter-stage.opened-letter{animation:pageIn .5s ease both}
+
+@media(max-width:700px){
+.topbar{flex-wrap:wrap}
+.navlinks{width:100%;justify-content:center;gap:0}
+.navlinks a{padding:9px 8px;font-size:10px}
+.hero{min-height:570px;padding:38px 12px}
+.hero-paper{padding:50px 19px 36px}
+.scrapbook{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.scrap{min-height:205px;padding:16px 11px}
+.mail-row{grid-template-columns:1fr}
+.mini-envelope{min-height:110px}
+.picker{grid-template-columns:1fr}
+.pick{min-height:105px}
+.section{padding:49px 15px}
+}
+@media(max-width:380px){
+.code-slots{gap:7px}
+.code-slot{width:42px;height:51px}
+.scrap h3{font-size:21px}
+.scrap-emoji{font-size:30px}
+.gate-inner{padding:30px 17px 24px}
+}
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+<div id="confetti" aria-hidden="true"></div>
+
+<!-- PASSWORD INVITATION: ORIGINAL SCREEN PRESERVED -->
+<div class="center-screen" id="gate">
+  <div class="gate">
+    <div class="gate-inner">
+      <div class="corner-bow">🎀</div>
+      <p class="eyebrow">The little love boutique</p>
+      <div class="invite-mark">💌</div>
+      <h1 class="script invite-title">A special thing</h1>
+      <p class="gate-description">For my favourite person, with a little secret tucked inside...</p>
+      <div class="ribbon-divider">♡</div>
+      <p class="small">A tiny code opens this invitation.</p>
+
+      <form id="codeForm">
+        <div class="code-slots" id="codeSlots" aria-label="Four digit secret code">
+          <div class="code-slot active">♡</div>
+          <div class="code-slot">♡</div>
+          <div class="code-slot">♡</div>
+          <div class="code-slot">♡</div>
+        </div>
+        <input id="secretCode" class="code-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="Enter four digit code" required>
+        <button class="btn btn-light" type="button" id="typeCode">Enter our secret number ♡</button>
+        <div id="keypad" class="hidden" style="max-width:260px;margin:16px auto;display:none;grid-template-columns:repeat(3,1fr);gap:8px">
+          <button class="btn btn-light key" type="button" data-key="1">1</button>
+          <button class="btn btn-light key" type="button" data-key="2">2</button>
+          <button class="btn btn-light key" type="button" data-key="3">3</button>
+          <button class="btn btn-light key" type="button" data-key="4">4</button>
+          <button class="btn btn-light key" type="button" data-key="5">5</button>
+          <button class="btn btn-light key" type="button" data-key="6">6</button>
+          <button class="btn btn-light key" type="button" data-key="7">7</button>
+          <button class="btn btn-light key" type="button" data-key="8">8</button>
+          <button class="btn btn-light key" type="button" data-key="9">9</button>
+          <button class="btn btn-light key" type="button" data-key="clear">⌫</button>
+          <button class="btn btn-light key" type="button" data-key="0">0</button>
+          <button class="btn btn-light key" type="button" data-key="enter">♡</button>
+        </div>
+        <button class="seal" type="submit" id="seal" aria-label="Unlock invitation">♥</button>
+        <div class="gate-error" id="codeError" role="status"></div>
+      </form>
+      <div class="gate-foot">SEALED WITH LOVE · OPEN WITH CARE</div>
+    </div>
+  </div>
+</div>
+
+<!-- BIRTHDAY WEBSITE -->
+<div id="app" class="hidden">
+  <header class="topbar">
+    <div class="brand">The little <span>love boutique</span></div>
+    <nav class="navlinks">
+      <a href="#home">Your invitation</a>
+      <a href="#keepsakes">Keepsakes</a>
+      <a href="#letters">Little letters</a>
+      <a href="#my-letter">From me</a>
+      <a href="#surprise">Surprise</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE 1 -->
+    <section class="hero active-page" id="home">
+      <div class="hero-paper">
+        <span class="scribble one">❀</span>
+        <span class="scribble two">♡</span>
+        <span class="stamp">A VERY SPECIAL DAY</span>
+        <div class="hero-flowers">🌷 🕊️ 🎀 🕊️ 🌷</div>
+        <p class="eyebrow">An invitation made just for you</p>
+        <h1 class="script" style="color:var(--wine)">Happy Birthday,<br>Honeyyy!</h1>
+        <div class="ribbon-divider">❦</div>
+        <p class="hero-sub">If happiness could be wrapped in paper, tied with a ribbon, and delivered straight to your heart... this would be my little gift to you.</p>
+        <p class="script" style="font-size:38px;color:var(--rose)">With love, Your Madam ♡</p>
+        <button class="btn" onclick="goTo('keepsakes')">Open your little world ↓</button>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="section" id="keepsakes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">Collection no. 01 · little things</div>
+          <h2 class="script" style="color:var(--wine)">Keepsakes from my heart</h2>
+          <p class="small">Every little paper holds a thought. Pick one, unfold it, and keep it close. 🎀</p>
+        </div>
+        <div class="scrapbook">
+          <article class="scrap"><span class="tape"></span><span class="scrap-emoji">🧸</span><h3>My comfort</h3><p>A little reminder, wrapped in pink.</p><button onclick="toggleKeepsake(0)">Unfold this note ↗</button><div class="keepsake-reveal hidden" id="keep0">You deserve comfort, kindness, and a place where you can always be yourself. ♡</div></article>
+          <article class="scrap"><span class="tape"></span><span class="scrap-emoji">🌷</span><h3>Your details</h3><p>The little things matter most.</p><button onclick="toggleKeepsake(1)">Unfold this note ↗</button><div class="keepsake-reveal hidden" id="keep1">It's the small things that make someone special. I hope you always feel appreciated for who you are. 🌷</div></article>
+          <article class="scrap"><span class="tape"></span><span class="scrap-emoji">🍓</span><h3>Sweet moments</h3><p>A little sweetness for your day.</p><button onclick="toggleKeepsake(2)">Unfold this note ↗</button><div class="keepsake-reveal hidden" id="keep2">May your year be full of unexpected good news, genuine laughter, and tiny reasons to smile. 🍓</div></article>
+          <article class="scrap"><span class="tape"></span><span class="scrap-emoji">🦋</span><h3>New beginnings</h3><p>Here's to all the things ahead.</p><button onclick="toggleKeepsake(3)">Unfold this note ↗</button><div class="keepsake-reveal hidden" id="keep3">I hope this next chapter surprises you in the loveliest ways and takes you closer to your dreams. 🦋</div></article>
+          <article class="scrap"><span class="tape"></span><span class="scrap-emoji">🎀</span><h3>Wrapped wishes</h3><p>A bow on a little birthday wish.</p><button onclick="toggleKeepsake(4)">Unfold this note ↗</button><div class="keepsake-reveal hidden" id="keep4">I wish you a soft heart, a brave spirit, peaceful nights, and days that make you proud of yourself. 🎀</div></article>
+          <article class="scrap"><span class="tape"></span><span class="scrap-emoji">💌</span><h3>Just because</h3><p>Not every note needs a reason.</p><button onclick="toggleKeepsake(5)">Unfold this note ↗</button><div class="keepsake-reveal hidden" id="keep5">You don't need to achieve anything extraordinary to deserve love, care, and appreciation. Just being you matters. 💌</div></article>
+        </div>
+        <div class="ribbon-divider">♡</div>
+        <div style="text-align:center"><button class="btn btn-light" onclick="goTo('letters')">Continue to little letters →</button></div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="section" style="background:#ead5c9" id="letters">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">Collection no. 02 · sealed with a kiss</div>
+          <h2 class="script" style="color:var(--wine)">Choose a little letter</h2>
+          <p class="small">Three tiny envelopes, three different surprises. Which one is calling you? ♡</p>
+        </div>
+        <div class="mail-row">
+          <button class="mini-envelope" onclick="openMiniLetter(0)"><span class="env">💌</span><span>Open when you need a smile</span></button>
+          <button class="mini-envelope" onclick="openMiniLetter(1)"><span class="env">💕</span><span>Open for a little reminder</span></button>
+          <button class="mini-envelope" onclick="openMiniLetter(2)"><span class="env">🎂</span><span>Open your birthday wish</span></button>
+        </div>
+        <div class="note-output hidden" id="miniOutput" aria-live="polite">
+          <h3 class="script" id="miniTitle">A little note</h3>
+          <p id="miniText"></p>
+          <button class="btn btn-light" onclick="closeMiniLetter()">Fold it back ♡</button>
+        </div>
+        <div class="ribbon-divider">♡</div>
+        <div style="text-align:center"><button class="btn btn-light" onclick="goTo('my-letter')">Continue to your letter →</button></div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: MAIN LETTER WITH HEART-SEALED ENVELOPE -->
+    <section class="section" id="my-letter">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">Collection no. 03 · the most personal page</div>
+          <h2 class="script" style="color:var(--wine)">A letter from Your Madam</h2>
+          <p class="small">A little more than a birthday wish. A little piece of my heart.</p>
+        </div>
+
+        <div class="envelope-wrap" id="letterEnvelope">
+          <p class="envelope-caption">A little letter, sealed with love ♡</p>
+          <button class="letter-envelope" id="openLetterEnvelope" onclick="openMainLetter()" aria-label="Open your heart-sealed letter">
+            <span class="envelope-back"></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-heart">♥</span>
+          </button>
+          <p class="small">Tap the red heart to open your letter ♡</p>
+        </div>
+
+        <div class="letter-stage hidden" id="mainLetter">
+          <article class="letter-paper">
+            <p class="eyebrow">To be opened on your special day</p>
+            <h3 class="script">My dearest Honeyyy,</h3>
+            <p>Happy birthday to someone who means so much to me. 💗 I wanted to make something a little different for you — something you could open, explore, and revisit whenever you needed a little reminder of how special you are.</p>
+            <p>I hope this year gives you reasons to laugh until your cheeks hurt, dreams that excite you, people who understand you, and peaceful moments when you can simply be yourself.</p>
+            <p>If I could wrap up a feeling and give it to you, it would be the feeling of being appreciated. I hope you know that your little details, your presence, and the person you are can make a difference in someone's world.</p>
+            <p>So today, let yourself be celebrated. Make a wish, enjoy the little things, and remember that you deserve beautiful things — not just today, but on all the ordinary days too. 🎀</p>
+            <p>This little boutique is my way of putting a few feelings into a gift. I hope you smile while exploring it, and that one day you come back to it and smile all over again.</p>
+            <p>With all my love,</p>
+            <p class="script letter-sign">Your Madam ♡</p>
+            <div style="text-align:center"><button class="btn btn-light" onclick="closeMainLetter()">Fold the letter back ♡</button></div>
+          </article>
+        </div>
+
+        <div class="ribbon-divider">♡</div>
+        <div style="text-align:center"><button class="btn btn-light" onclick="goTo('surprise')">Continue to your surprise →</button></div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 -->
+    <section class="section" style="background:#f0ddd2" id="surprise">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-label">Collection no. 04 · choose your surprise</div>
+          <h2 class="script" style="color:var(--wine)">What shall we open next?</h2>
+          <p class="small">Pick whichever little surprise you like. Every choice has something waiting inside. 💗</p>
+        </div>
+        <div class="picker">
+          <button class="pick" onclick="chooseSurprise(0)"><span>🌹</span><strong>A rose for you</strong><small>Open a sweet message</small></button>
+          <button class="pick" onclick="chooseSurprise(1)"><span>🫶</span><strong>A warm hug</strong><small>Open a comforting note</small></button>
+          <button class="pick" onclick="chooseSurprise(2)"><span>✨</span><strong>A birthday wish</strong><small>Open a little wish for you</small></button>
+        </div>
+        <div class="note-output hidden" id="surpriseOutput" aria-live="polite"><h3 class="script" id="surpriseTitle"></h3><p id="surpriseText"></p></div>
+        <div class="ribbon-divider">❦</div>
+        <div class="gift-area">
+          <p class="eyebrow">The final little package</p>
+          <h2 class="script" style="color:var(--wine)">Something just for you</h2>
+          <p class="small">A gift doesn't need to be big to carry a lot of love.</p>
+          <button class="gift-box" id="giftButton" onclick="openGift()" aria-label="Open your gift">🎁</button>
+          <p class="small" id="giftHint">Tap the gift to untie the ribbon. ♡</p>
+          <div class="gift-message hidden" id="giftMessage">
+            <div class="final-sparkles">♡ ✿ ♡</div>
+            <h3 class="script">Happy Birthday, Honeyyy!</h3>
+            <p>Surpriseee! 🎀 If this little website could give you one thing, I would want it to be a memory you can revisit with a smile. I hope your birthday is full of warmth, your year full of possibility, and your heart full of lovely moments.</p>
+            <p>May you always have something to look forward to, something to believe in, and reasons to smile at the little things.</p>
+            <p class="script" style="font-size:38px;color:var(--wine)">All my love, Your Madam ♡</p>
+            <button class="btn" onclick="celebrate()">One more sprinkle of magic ✨</button>
+          </div>
+        </div>
+        <div class="music-card">
+          <div style="font-size:31px">🎶</div>
+          <div class="music-info" style="flex:1"><strong>A little birthday melody</strong><small id="musicStatus">Optional: add birthday-song.mp3 to your folder.</small></div>
+          <button class="btn btn-light" id="musicButton" onclick="toggleMusic()">▶ Play</button>
+          <audio id="music" src="birthday-song.mp3.mpeg" loop preload="none"></audio>
+        </div>
+        <div class="ribbon-divider">♡</div>
+        <div style="text-align:center"><button class="btn btn-light" onclick="goTo('home')">Back to the invitation ↑</button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="script">Made with love, just for you.</div>
+    <p>One little boutique, a thousand little feelings. ♡</p>
+    <p>Honeyyy · from Your Madam 🎀</p>
+  </footer>
+</div>
+
+<button id="topBtn" class="hidden" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// This is a playful password gate, not secure authentication.
+const SECRET_CODE = "2412";
+
+const codeInput = document.getElementById("secretCode");
+const slots = [...document.querySelectorAll(".code-slot")];
+const keypad = document.getElementById("keypad");
+const typeCodeButton = document.getElementById("typeCode");
+const codeError = document.getElementById("codeError");
+const seal = document.getElementById("seal");
+
+function renderSlots() {
+  const value = codeInput.value;
+  slots.forEach((slot,i) => {
+    slot.textContent = value[i] || "♡";
+    slot.classList.toggle("active",i === value.length && value.length < 4);
+  });
+}
+function showKeypad() {
+  keypad.style.display = "grid";
+  keypad.classList.remove("hidden");
+  typeCodeButton.classList.add("hidden");
+  renderSlots();
+}
+typeCodeButton.addEventListener("click",showKeypad);
+slots.forEach(slot => slot.addEventListener("click",showKeypad));
+
+keypad.addEventListener("click",event => {
+  const key = event.target.closest("[data-key]");
+  if (!key) return;
+  const value = key.dataset.key;
+
+  if (value === "clear") {
+    codeInput.value = codeInput.value.slice(0,-1);
+  } else if (value === "enter") {
+    document.getElementById("codeForm").requestSubmit();
+    return;
+  } else if (codeInput.value.length < 4) {
+    codeInput.value += value;
+  }
+
+  codeError.textContent = "";
+  renderSlots();
+  if (codeInput.value.length === 4) seal.textContent = "♡";
+});
+
+codeInput.addEventListener("input",() => {
+  codeInput.value = codeInput.value.replace(/\D/g,"").slice(0,4);
+  codeError.textContent = "";
+  renderSlots();
+});
+
+document.getElementById("codeForm").addEventListener("submit",event => {
+  event.preventDefault();
+
+  if (codeInput.value !== SECRET_CODE) {
+    codeError.textContent = "Not quite, sweetheart. Try our little number again. ♡";
+    codeInput.value = "";
+    renderSlots();
+    return;
+  }
+
+  seal.classList.add("unlocked");
+  codeError.textContent = "The invitation is opening... ♡";
+
+  setTimeout(() => {
+    document.getElementById("gate").classList.add("hidden");
+    document.getElementById("app").classList.remove("hidden");
+    document.getElementById("topBtn").classList.remove("hidden");
+    showPage("home");
+    celebrate();
+  },650);
+});
+
+// Only one main page is visible at a time.
+function showPage(id) {
+  const pages = document.querySelectorAll("main > .hero, main > .section");
+
+  pages.forEach(page => page.classList.remove("active-page"));
+
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  target.classList.add("active-page");
+
+  document.querySelectorAll(".navlinks a").forEach(link => {
+    if (link.getAttribute("href") === "#" + id) {
+      link.setAttribute("aria-current","page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function goTo(id) {
+  showPage(id);
+}
+
+// Navigation menu links change pages instead of scrolling through all sections.
+document.querySelectorAll(".navlinks a").forEach(link => {
+  link.addEventListener("click",event => {
+    event.preventDefault();
+    showPage(link.getAttribute("href").slice(1));
+  });
+});
+
+// Main letter envelope.
+function openMainLetter() {
+  document.getElementById("letterEnvelope").classList.add("hidden");
+
+  const letter = document.getElementById("mainLetter");
+  letter.classList.remove("hidden");
+  letter.classList.add("opened-letter");
+
+  letter.scrollIntoView({behavior:"smooth",block:"start"});
+  sprinkle(8);
+}
+
+function closeMainLetter() {
+  document.getElementById("mainLetter").classList.add("hidden");
+  document.getElementById("letterEnvelope").classList.remove("hidden");
+  document.getElementById("letterEnvelope").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function toggleKeepsake(index) {
+  const element = document.getElementById("keep" + index);
+  element.classList.toggle("hidden");
+  if (!element.classList.contains("hidden")) sprinkle(5);
+}
+
+const miniLetters = [
+  {
+    title:"For your smile ♡",
+    text:"I hope something unexpectedly lovely happens to you today. I hope you laugh at something silly, hear a kind word, and find a reason to feel glad you're here. You deserve those little moments."
+  },
+  {
+    title:"A tiny reminder 💗",
+    text:"You don't have to be perfect to be appreciated. You don't need to have everything figured out to be moving forward. Take life one little step at a time, and remember to be kind to yourself."
+  },
+  {
+    title:"Your birthday wish 🎂",
+    text:"May your new year bring you good health, exciting opportunities, lovely memories, kind people, and the courage to follow the things that matter to you. Happy birthday, Honeyyy!"
+  }
+];
+
+function openMiniLetter(index) {
+  document.getElementById("miniTitle").textContent = miniLetters[index].title;
+  document.getElementById("miniText").textContent = miniLetters[index].text;
+  document.getElementById("miniOutput").classList.remove("hidden");
+  document.getElementById("miniOutput").scrollIntoView({behavior:"smooth",block:"nearest"});
+  sprinkle(5);
+}
+
+function closeMiniLetter() {
+  document.getElementById("miniOutput").classList.add("hidden");
+}
+
+const surprises = [
+  ["A rose, just for you 🌹","May you always find beauty in the little things, warmth in the people around you, and hope in the days still to come."],
+  ["A very big virtual hug 🫶","Consider this a reminder to take a breath, give yourself credit for how far you've come, and let yourself be cared for, too."],
+  ["A wish made just for you ✨","May your dreams grow bigger, your worries feel smaller, and your everyday life bring you little moments worth remembering."]
+];
+
+function chooseSurprise(index) {
+  document.getElementById("surpriseTitle").textContent = surprises[index][0];
+  document.getElementById("surpriseText").textContent = surprises[index][1];
+  document.getElementById("surpriseOutput").classList.remove("hidden");
+  sprinkle(9);
+}
+
+let giftOpened = false;
+
+function openGift() {
+  const message = document.getElementById("giftMessage");
+  giftOpened = !giftOpened;
+  message.classList.toggle("hidden",!giftOpened);
+  document.getElementById("giftButton").textContent = giftOpened ? "💝" : "🎁";
+  document.getElementById("giftHint").textContent = giftOpened
+    ? "A little gift, wrapped with all my love. ♡"
+    : "Tap the gift to untie the ribbon. ♡";
+
+  if (giftOpened) {
+    celebrate();
+    message.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }
+}
+
+function sprinkle(count) {
+  const layer = document.getElementById("confetti");
+  const symbols = ["♡","✿","♥","🎀","✧"];
+
+  for (let i=0;i<count;i++) {
+    const piece = document.createElement("span");
+    piece.className = "confetti-piece";
+    piece.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+    piece.style.left = Math.random()*100 + "%";
+    piece.style.fontSize = (Math.random()*16+12) + "px";
+    piece.style.color = ["#b34c68","#d58e96","#9c344e","#e8ad9d"][Math.floor(Math.random()*4)];
+    piece.style.animationDelay = (Math.random()*.6) + "s";
+    layer.appendChild(piece);
+    setTimeout(() => piece.remove(),4200);
+  }
+}
+
+function celebrate() {
+  sprinkle(36);
+}
+
+async function toggleMusic() {
+  const audio = document.getElementById("music");
+  const button = document.getElementById("musicButton");
+  const status = document.getElementById("musicStatus");
+
+  if (audio.paused) {
+    try {
+      await audio.play();
+      button.textContent = "Ⅱ Pause";
+      status.textContent = "Now playing your birthday melody ♡";
+    } catch {
+      status.textContent = "make sure birthday-song.mp3.mpeg beside index.html.";
+    }
+  } else {
+    audio.pause();
+    button.textContent = "▶ Play";
+    status.textContent = "Paused for now ♡";
+  }
+}
+
+window.addEventListener("scroll",() => {
+  document.getElementById("topBtn").style.opacity = window.scrollY > 300 ? "1" : ".6";
+});
+</script>
+</body>
+</html>
